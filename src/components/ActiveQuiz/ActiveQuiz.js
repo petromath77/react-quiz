@@ -1,21 +1,17 @@
 import React from 'react';
 import style from './ActiveQuiz.module.scss';
+import AnswerList from '../ActiveQuiz/AnswerList/AnswerList';
 
 const ActiveQuiz = props => (
   <div className={style.activeQuiz}>
     <div className={style.question}>
       <span>
-        <strong>2.</strong>
-        How are you doing?
+        <strong>{props.answerNumber}. </strong>
+        {props.question}
       </span>
-      <span>4 of 12</span>
+      <span>{props.answerNumber} of {props.quizLength}</span>
     </div>
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-    </ul>
+    <AnswerList clickItem={props.onAnswerClick}answers={props.answers}/>
   </div>
 );
 

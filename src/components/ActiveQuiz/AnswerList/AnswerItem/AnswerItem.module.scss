@@ -1,0 +1,13 @@
+.item {
+  padding: 5px 10px;
+  border: 1px solid #ffffff;
+  margin-bottom: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s;
+  
+  &:hover,
+  &:focus {
+    transform: scale(1.03);
+  }
+}
