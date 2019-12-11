@@ -5,3 +5,11 @@
   margin: 10px 0 0;
   list-style: none;
 }
+
+.list.vis {
+  opacity: 1;
+}
+
+.list.hidden {
+  opacity: 0;
+}
