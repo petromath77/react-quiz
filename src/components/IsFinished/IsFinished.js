@@ -1,8 +1,17 @@
 import React from 'react';
 import style from './IsFinished.module.scss';
+import Button from '../UI/Button/Button'
 
-const IsFinished = props => { 
-  return (
+const IsFinished = props => {
+
+  const successCount = Object.keys(props.results).reduce((total, key) => {
+    if (props.results[key] === 'success') {
+      total++;
+    }
+    return total;
+  }, 0);
+
+    return (
     <div className={style.finished}>
       <ul className={style.list}>
         {
@@ -15,25 +24,25 @@ const IsFinished = props => {
             ]
 
             return (
-              <li key={index}>
+              <li key={index} className={style.item}>
                 {index + 1}. {quizItem.question}
                 <i className={cls.join(' ')}/>
               </li>
             )
           })
         }
-        {/* <li className={style.right}>
-          1. Damn Right!
-          <i className={"fa fa-check"} aria-hidden="true"></i>
-        </li>
-        <li className={style.false}>
-          2. Looose!
-          <i className={"fa fa-times"} aria-hidden="true"></i>
-        </li> */}
-
       </ul>
-      <p>Right: 4 from {props.quizLength}</p>
-      <button className={style.button}>Once more</button>
+      <p>Right: {successCount} from {props.quizLength}</p>
+        <Button
+          text={'Once More'}
+          onceMore={props.onceMore}
+          type="success"
+        />
+        <Button
+          text={'More Tests'}
+          onceMore={props.onceMore}
+          type="warning"
+        />
     </div>
   )
 }

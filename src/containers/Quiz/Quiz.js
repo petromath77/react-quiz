@@ -6,15 +6,15 @@ import IsFinished from '../../components/IsFinished/IsFinished'
 class Quiz extends Component {
   state = {
     results: {},
-    questionNumber: 0,
+    activeQuestion: 0,
     answerState: null,
     visible: null,
-    isFinished: false,
+    isFinished: true,
     quiz: [
       {
         question: 'How are you doing?',
         rightAnswer: 2,
-        questionId: 1,
+        id: 1,
         answers: [
           {text: "Good", id: 1},
           {text: "Not Bad", id: 2},
@@ -25,7 +25,7 @@ class Quiz extends Component {
       {
         question: 'What are you doing?',
         rightAnswer: 3,
-        questionId: 2,
+        id: 2,
         answers: [
           {text: "Something", id: 1},
           {text: "Nothing", id: 2},
@@ -44,7 +44,7 @@ class Quiz extends Component {
       }
     }
 
-    const question = this.state.quiz[this.state.questionNumber];
+    const question = this.state.quiz[this.state.activeQuestion];
     const results = this.state.results;
 
     if (question.rightAnswer === answerId) {
@@ -67,7 +67,7 @@ class Quiz extends Component {
         } else {
 
           this.setState({
-            questionNumber: this.state.questionNumber + 1,
+            activeQuestion: this.state.activeQuestion + 1,
             answerState: { [answerId]: null },
             visible: 'vis'
           })
@@ -84,6 +84,7 @@ class Quiz extends Component {
         results
 
       });
+      // console.log(this.state.questionNumber+1 + ':' + results[question.id])
     }
   }
 
@@ -95,7 +96,17 @@ class Quiz extends Component {
   }
 
   isQuizFinished() { 
-    return this.state.questionNumber + 1 === this.state.quiz.length
+    return this.state.activeQuestion + 1 === this.state.quiz.length
+  }
+
+  onceMoreHandler = () => { 
+    this.setState({
+      results: {},
+      activeQuestion: 0,
+      answerState: null,
+      visible: null,
+      isFinished: false,
+    })
   }
 
   render() {
@@ -110,14 +121,15 @@ class Quiz extends Component {
               quiz={this.state.quiz}
               results={this.state.results}
               quizLength={this.state.quiz.length}
+              onceMore = {this.onceMoreHandler}
             />
             :
             <ActiveQuiz
-            answerNumber={this.state.questionNumber + 1}
+            answerNumber={this.state.activeQuestion + 1}
             quizLength={this.state.quiz.length}
             onAnswerClick={this.onClickAnswer}
-            question={this.state.quiz[this.state.questionNumber].question}
-            answers={this.state.quiz[this.state.questionNumber].answers}
+            question={this.state.quiz[this.state.activeQuestion].question}
+            answers={this.state.quiz[this.state.activeQuestion].answers}
             state={this.state.answerState}
             visible={this.state.visible}
           />

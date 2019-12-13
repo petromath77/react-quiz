@@ -1,0 +1,23 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: honeydew;
+  height: 100%;
+  transition: all .5s;
+}
+.open {
+  width: 300px;
+  
+
+  .trigger {
+    left: 260px;
+  }
+}
+
+.trigger {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  font-size: 24px;
+}
