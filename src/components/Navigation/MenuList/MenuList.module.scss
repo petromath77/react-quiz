@@ -1,10 +1,25 @@
 .list {
   padding: 20px;
   ;list-style: none;
-  text-align: center;
-  cursor: pointer;
+  text-align: left;
+  font-size: 28px;
 }
 
 .item {
   margin-bottom: 10px;
+
+  &:hover,
+  &:focus {
+    color: rgb(112, 112, 112);
+  }
+}
+
+.link {
+  color: #000000;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: rgb(112, 112, 112);
+  }
 }

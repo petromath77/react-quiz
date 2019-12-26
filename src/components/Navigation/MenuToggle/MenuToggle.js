@@ -8,7 +8,7 @@ const MenuToggle = (props) => {
   return (
     <div className={`${style.menu} ${isActive ? style.open : ''}`}>
       <i onClick={clickToggle} className={`${style.trigger} fa ${isActive ? `fa-times` : 'fa-bars'}`} />
-      <MenuList /> 
+      <MenuList isActive={isActive}/> 
     </div>
   )
 }

@@ -14,13 +14,19 @@ class Layout extends Component {
     })
   }
 
+  onClickClose = () => { 
+    this.setState({
+      open: false
+    })
+  }
+
   render() {
 
 
     return (
       <>
         <MenuToggle clickToggle={this.onClickToggle} isActive={this.state.open} />
-        <Overlay isOpen={this.state.open}/>
+        <Overlay isOpen={this.state.open} onClose={this.onClickClose}/>
         <div className={style.layout}>
           <main className={style.main}>
             { this.props.children }
