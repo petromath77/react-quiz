@@ -20,22 +20,23 @@ const links = [
   }
 ];
 
-const renderLinks = () => { 
+const renderLinks = (param) => { 
+
   return links.map((link, index) => { 
     return (
       <li className={style.item} key={index}>
-        <NavLink to={link.to} className={style.link}>{link.name}</NavLink>
+        <NavLink to={link.to} onClick={ param } className={style.link}>{link.name}</NavLink>
       </li>
     )
   });
 };
 
 const MenuList = (props) => {
-  // const { isActive, onClose } = props;
+  const { onClose } = props;
   return (
     <>
     <ul className={style.list}>
-      {renderLinks()}
+      {renderLinks(onClose)}
     </ul>
       {/* {isActive ? <Backdrop onClick={onClose} /> : null} */}
     </>

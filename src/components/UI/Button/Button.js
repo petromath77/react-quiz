@@ -9,6 +9,7 @@ const Button = (props) => {
     [style.error]: type === 'error',
     [style.warning]: type === 'warning',
     [style.success]: type === 'success',
+    [style.btn]: type === 'btn',
   })
 
   return (

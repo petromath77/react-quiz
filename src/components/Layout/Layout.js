@@ -25,7 +25,7 @@ class Layout extends Component {
 
     return (
       <>
-        <MenuToggle clickToggle={this.onClickToggle} isActive={this.state.open} />
+        <MenuToggle clickToggle={this.onClickToggle} isActive={this.state.open} onClose={this.onClickClose}/>
         <Overlay isOpen={this.state.open} onClose={this.onClickClose}/>
         <div className={style.layout}>
           <main className={style.main}>

@@ -9,7 +9,7 @@ class Quiz extends Component {
     activeQuestion: 0,
     answerState: null,
     visible: null,
-    isFinished: true,
+    isFinished: false,
     quiz: [
       {
         question: 'How are you doing?',
@@ -107,6 +107,10 @@ class Quiz extends Component {
       visible: null,
       isFinished: false,
     })
+  }
+
+  componentDidMount() { 
+    console.log("quiz-id:" + this.props.match.params.id);
   }
 
   render() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './IsFinished.module.scss';
 import Button from '../UI/Button/Button'
+import { NavLink } from 'react-router-dom';
 
 const IsFinished = props => {
 
@@ -38,11 +39,13 @@ const IsFinished = props => {
           onceMore={props.onceMore}
           type="success"
         />
-        <Button
-          text={'More Tests'}
-          onceMore={props.onceMore}
-          type="warning"
-        />
+        <NavLink to="/">
+          <Button
+            text={'More Tests'}
+            onceMore={props.onceMore}
+            type="warning"
+          />
+        </NavLink>
     </div>
   )
 }

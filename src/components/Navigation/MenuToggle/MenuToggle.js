@@ -4,11 +4,11 @@ import MenuList from '../MenuList/MenuList';
 
 
 const MenuToggle = (props) => {
-  const { isActive, clickToggle } = props;
+  const { isActive, clickToggle, onClose } = props;
   return (
     <div className={`${style.menu} ${isActive ? style.open : ''}`}>
       <i onClick={clickToggle} className={`${style.trigger} fa ${isActive ? `fa-times` : 'fa-bars'}`} />
-      <MenuList isActive={isActive}/> 
+      <MenuList isActive={isActive} onClose={ onClose }/> 
     </div>
   )
 }
