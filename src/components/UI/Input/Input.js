@@ -25,7 +25,7 @@ const Input = (props) => {
         onChange={onChange}
       />
       
-        {isValid ? "" : <span>Input correct {label}</span>}
+        {isValid ? "" : <span className={style.span}>Input correct {label}</span>}
       
     </div>
   );
