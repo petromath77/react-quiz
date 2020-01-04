@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Input.module.scss';
 
 const Input = (props) => {
-  const { label, forHtml, text, type, value, onChange} = props;
+  const { ref, label, forHtml, text, type, value, onChange} = props;
 
   const isValid = ({ valid, touched, shouldValidate }) => { 
     return !valid && touched && shouldValidate;
@@ -16,7 +16,7 @@ const Input = (props) => {
         htmlFor={forHtml}>{label}:
       </label>
 
-      <input
+      <input ref={ref}
         id={forHtml}
         className={`${style.input} ${isValid ? '' : style.invalid}`}
         type={type}
