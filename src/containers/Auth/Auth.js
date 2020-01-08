@@ -40,12 +40,16 @@ const Auth = ({ onSubmit }) => {
         } else { 
           setPassError(true);
         }
-        console.log('!!!');
+
+        if (validateEmail(mail) && validatePass(pass)) {
+          setDisableButton(true);
+        } else { 
+          setDisableButton(false);
+        }
 
       } else { 
         setEmailError(true);
         setPassError(true);
-        console.log('34234');
       }
       }
     });
