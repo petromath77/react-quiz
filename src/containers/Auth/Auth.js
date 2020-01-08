@@ -28,7 +28,7 @@ const Auth = ({ onSubmit }) => {
       const pass = formState.values['password'];
         // accessing the inputs target that triggered the blur event
         //const { name, value, ...target } = e.target;
-      if (mail && pass) {
+      if (mail || pass) {
         if (validateEmail(mail)) {
           setEmailError(false);
         } else { 
