@@ -3,7 +3,7 @@ import style from './Button.module.scss'
 import ClassNames from 'classnames'
 
 const Button = (props) => { 
-  const { text, onceMore, type } = props;
+  const { text, onceMore, type, disableButton } = props;
 
   const ClassName = ClassNames({
     [style.error]: type === 'error',
@@ -13,7 +13,7 @@ const Button = (props) => {
   })
 
   return (
-    <button
+    <button disabled = {disableButton}
       text={text}
       type={type}
       onClick={onceMore}
